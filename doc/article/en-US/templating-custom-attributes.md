@@ -42,8 +42,7 @@ The simplest custom attribute to create is one that changes the behavior of an e
 
     @autoinject
     export class RedSquareCustomAttribute {
-      constructor(element: Element){
-          this.element = element;
+      constructor(private element: Element){
           this.element.style.width = this.element.style.height = '100px';
           this.element.style.backgroundColor = 'red';
       }
@@ -104,8 +103,7 @@ Aurelia custom attributes support three different types of binding: single value
     export class SquareCustomAttribute {
       element: Element;
 
-      constructor(element: Element){
-        this.element = element;
+      constructor(private element: Element){
         this.element.style.width = this.element.style.height = '100px';
       }
 
@@ -153,8 +151,7 @@ Note that in the above code sample, the color of the square will not be updated,
     export class SquareCustomAttribute {
       element: Element;
 
-      constructor(element: Element){
-        this.element = element;
+      constructor(private element: Element){
         this.element.style.width = this.element.style.height = '100px';
       }
 
@@ -215,8 +212,7 @@ Options binding provides a custom attribute the ability to have multiple bindabl
       @bindable sideLength: string;
       @bindable color: string;
 
-      constructor(element: Element){
-        this.element = element;
+      constructor(private element: Element){
       }
 
       sideLengthChanged(newValue:string, oldValue:string){
@@ -276,8 +272,7 @@ Utilizing dynamic options, a custom attribute may deal with bindable properties 
     @dynamicOptions
     @autoinject
     export class RedSquareCustomAttribute {
-      constructor(element: Element){
-        this.element = element;
+      constructor(private element: Element){
       }
 
       propertyChanged(name: string, newValue: string, oldValue: string){
