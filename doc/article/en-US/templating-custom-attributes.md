@@ -27,6 +27,7 @@ The simplest custom attribute to create is one that changes the behavior of an e
 
 <code-listing heading="red-square.${context.language.fileExtension}">
   <source-code lang="ES 2015/2016">
+
     export class RedSquareCustomAttribute {
       static inject = [Element];
 
@@ -38,6 +39,7 @@ The simplest custom attribute to create is one that changes the behavior of an e
     }
   </source-code>
   <source-code lang="TypeScript">
+
     import {autoinject} from 'aurelia-framework';
 
     @autoinject
@@ -52,6 +54,7 @@ The simplest custom attribute to create is one that changes the behavior of an e
 
 <code-listing heading="simple-attribute-usage.html">
   <source-code lang="HTML">
+
     <template>
       <require from="./red-square"></require>
       <div red-square></div>
@@ -67,6 +70,7 @@ Overriding the default naming convention is possible by utilizing the `@customAt
 
 <code-listing heading="red-square.${context.language.fileExtension}">
   <source-code lang="ES 2015/ES 2016/TypeScript">
+
     import {customAttribute} from 'aurelia-framework';
 
     @customAttribute('red-square')
@@ -83,6 +87,7 @@ Aurelia custom attributes support three different types of binding: single value
 
 <code-listing heading="square.${context.language.fileExtension}">
   <source-code lang="ES 2015/2016">
+
     export class SquareCustomAttribute {
       static inject = [Element];
 
@@ -97,12 +102,11 @@ Aurelia custom attributes support three different types of binding: single value
     }
   </source-code>
   <source-code lang="TypeScript">
+
     import {autoinject} from 'aurelia-framework';
 
     @autoinject
     export class SquareCustomAttribute {
-      element: Element;
-
       constructor(private element: Element){
         this.element.style.width = this.element.style.height = '100px';
       }
@@ -116,6 +120,7 @@ Aurelia custom attributes support three different types of binding: single value
 
 <code-listing heading="Simple Attribute with Value Usage">
   <source-code lang="HTML">
+
     <template>
       <require from="./square"></require>
 
@@ -131,6 +136,7 @@ Note that in the above code sample, the color of the square will not be updated,
 
 <code-listing heading="square.${context.language.fileExtension}">
   <source-code lang="ES 2015/2016">
+
     export class SquareCustomAttribute {
       static inject = [Element];
 
@@ -145,12 +151,11 @@ Note that in the above code sample, the color of the square will not be updated,
     }
   </source-code>
   <source-code lang="TypeScript">
+
     import {autoinject} from 'aurelia-framework';
 
     @autoinject
     export class SquareCustomAttribute {
-      element: Element;
-
       constructor(private element: Element){
         this.element.style.width = this.element.style.height = '100px';
       }
@@ -164,6 +169,7 @@ Note that in the above code sample, the color of the square will not be updated,
 
 <code-listing heading="Simple Attribute with Value Usage">
   <source-code lang="HTML">
+
     <template>
       <require from="./square"></require>
 
@@ -184,6 +190,7 @@ Options binding provides a custom attribute the ability to have multiple bindabl
 
 <code-listing heading="square.${context.language.fileExtension}">
   <source-code lang="ES 2015/2016">
+
     import {bindable, inject} from 'aurelia-framework';
 
     @inject(Element)
@@ -205,6 +212,7 @@ Options binding provides a custom attribute the ability to have multiple bindabl
     }
   </source-code>
   <source-code lang="TypeScript">
+
     import {bindable, autoinject} from 'aurelia-framework';
 
     @autoinject
@@ -228,6 +236,7 @@ Options binding provides a custom attribute the ability to have multiple bindabl
 
 <code-listing heading="Single Value Binding Usage">
   <source-code lang="HTML">
+
     <template>
       <require from="./square"></require>
 
@@ -242,6 +251,7 @@ Utilizing dynamic options, a custom attribute may deal with bindable properties 
 
 <code-listing heading="square.${context.language.fileExtension}">
   <source-code lang="ES 2015/2016">
+
     import {dynamicOptions, inject} from 'aurelia-framework';
 
     @dynamicOptions
@@ -257,7 +267,7 @@ Utilizing dynamic options, a custom attribute may deal with bindable properties 
             this.element.style.backgroundColor = newValue;
             break;
           case 'size':
-            this.element.style.width = this.element.style.height = newValue;
+            this.element.style.width = this.element.style.height = `${newValue}px`;
             break;
           default:
             this.element.style[name] = value;
@@ -267,6 +277,7 @@ Utilizing dynamic options, a custom attribute may deal with bindable properties 
     }
   </source-code>
   <source-code lang="TypeScript">
+
     import {dynamicOptions, autoinject} from 'aurelia-framework';
 
     @dynamicOptions
@@ -294,6 +305,7 @@ Utilizing dynamic options, a custom attribute may deal with bindable properties 
 
 <code-listing heading="Single Value Binding Usage">
   <source-code lang="HTML">
+
     <template>
       <require from="./square"></require>
 
